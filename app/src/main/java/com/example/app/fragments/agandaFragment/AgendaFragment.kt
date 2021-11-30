@@ -63,8 +63,7 @@ class AgendaFragment : Fragment() {
                 if (inputCheck(titulo, descripcion, finaliza)) {
 
                     val tarea = Tarea(
-                        0, titulo, descripcion, finaliza, getCurrentDate(), false,
-                        mutableListOf()
+                        0, titulo, descripcion, finaliza, getCurrentDate(), false
                     )
                     agendaViewModel.addTarea(tarea)
                     Toast.makeText(requireContext(), "Guardado", Toast.LENGTH_LONG).show()
