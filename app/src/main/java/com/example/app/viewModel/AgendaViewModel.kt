@@ -13,12 +13,20 @@ import kotlinx.coroutines.launch
 class AgendaViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository:AgendaRepository
-    val readAllData: LiveData<List<Tarea>>
+    lateinit var readAllData: LiveData<List<Tarea>>
 
     init {
+
         val agendaDao=AgendaDatabase.getDatabase(application).agendaDao()
         repository= AgendaRepository(agendaDao)
-        readAllData = repository.readAllData
+    }
+
+    fun getAllTareas(){
+
+        viewModelScope.launch (Dispatchers.IO){
+
+            readAllData = repository.readAllData
+        }
     }
 
     fun addTarea(tarea: Tarea) {

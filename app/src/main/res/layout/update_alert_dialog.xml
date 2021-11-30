@@ -45,7 +45,6 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/etFinaliza"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etTitulo" />
 
@@ -58,10 +57,9 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:background="@drawable/alert_dialog_background_items"
-        android:hint="Finaliza"
+        android:hint="Finaliza: dd/mm/yyyy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etContenido" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,5 +12,8 @@ data class Tarea(
     val id:Int,
     val nombreTarea:String,
     val contenidoTarea:String,
-    val finalizaTarea:String
+    val fechaFinal:String,
+    val fechaInicio:String,
+    var tareaEstaLista:Boolean,
+    var comentarios:MutableList<String>
 ) : Parcelable

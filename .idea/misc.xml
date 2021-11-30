@@ -3,20 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/drawable/alert_dialog_background_items.xml" value="0.2064814814814815" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/activity_main.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/drawable/custom_checkbox.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/add_alert_dialog.xml" value="0.1" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/add_alert_dialog_backgroud_items.xml" value="0.67" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/agenda_adapter_row.xml" value="0.35269709543568467" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/content_main.xml" value="0.10144927536231885" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/fragment_agenda.xml" value="0.15" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/fragment_descripcion.xml" value="0.33" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/fragment_first.xml" value="0.10144927536231885" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/fragment_second.xml" value="0.10144927536231885" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/ui.xml" value="0.11684782608695653" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/update_alert_dialog.xml" value="0.11684782608695653" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/menu/descripcion_menu.xml" value="0.25" />
-        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/menu/menu_main.xml" value="0.1828125" />
+        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/agenda_adapter_row.xml" value="0.33" />
+        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/comentarios_adapter_row.xml" value="0.33" />
+        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/content_main.xml" value="0.1641337386018237" />
+        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/fragment_agenda.xml" value="0.25" />
+        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/fragment_descripcion.xml" value="0.22" />
+        <entry key="..\:/Users/Amilcar Malaver/AndroidStudioProjects/app/app/src/main/res/layout/update_alert_dialog.xml" value="0.1641337386018237" />
       </map>
     </option>
   </component>

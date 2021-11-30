@@ -3,53 +3,86 @@ package com.example.app.fragments.agandaFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app.R
 import com.example.app.model.Tarea
 
-class AgendaAdpter: RecyclerView.Adapter<AgendaAdpter.ViewHolder>() {
+class AgendaAdpter(val listener: (Tarea) -> Unit) :
+    RecyclerView.Adapter<AgendaAdpter.ViewHolder>() {
 
     private var agendaList = emptyList<Tarea>()
 
-    class ViewHolder(view: View):RecyclerView.ViewHolder(view) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val id=view.findViewById(R.id.tvID) as TextView
-        val titulo=view.findViewById(R.id.tvTitulo) as TextView
-        val contenido=view.findViewById(R.id.tvContenido) as TextView
-        val finaliza=view.findViewById(R.id.tvFinaliza) as TextView
-        val layaout = view.findViewById(R.id.card) as View
-
-
+        val layoutInflater = LayoutInflater.from(parent.context)
+        return ViewHolder(
+            layoutInflater.inflate(R.layout.agenda_adapter_row, parent, false)
+        )
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutInflater= LayoutInflater.from(parent.context)
-        return ViewHolder(
-            layoutInflater.inflate(R.layout.agenda_adapter_row,parent,false)
-        )    }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = agendaList[position]
-        holder.id.text=currentItem.id.toString()
-        holder.titulo.text = currentItem.nombreTarea
-        holder.contenido.text = currentItem.contenidoTarea
-        holder.finaliza.text=currentItem.finalizaTarea
 
-        holder.layaout.setOnClickListener {
-            val action = AgendaFragmentDirections.actionFirstFragmentToSecondFragment(currentItem)
-            holder.itemView.findNavController().navigate(action)
-        }
+        holder.bind(agendaList[position])
     }
 
     override fun getItemCount(): Int {
+
         return agendaList.size
     }
 
-    fun setData(tarea:List<Tarea>){
+    fun setData(tareas: List<Tarea>) {
 
-        this.agendaList = tarea
+        agendaList = tareas
         notifyDataSetChanged()
+    }
+
+    fun getFilteredData(tareas: List<Tarea>) {
+
+        agendaList = tareas
+        notifyDataSetChanged()
+    }
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        val id = view.findViewById<TextView>(R.id.tvID)
+        val titulo = view.findViewById<TextView>(R.id.tvTitulo)
+        val contenido = view.findViewById<TextView>(R.id.tvContenido)
+        val finaliza = view.findViewById<TextView>(R.id.tvFinaliza)
+        val inicio = view.findViewById<TextView>(R.id.tvFechaActual)
+        val tareaLista = view.findViewById<CheckBox>(R.id.checkBoxTareaFinalizada)
+        val layaout = view.findViewById<View>(R.id.card)
+
+        fun bind(tarea: Tarea) {
+
+            id.text = tarea.id.toString()
+            titulo.text = tarea.nombreTarea
+            contenido.text = tarea.contenidoTarea
+            finaliza.text = tarea.fechaFinal
+            inicio.text = tarea.fechaInicio
+            tareaLista.isChecked = tarea.tareaEstaLista
+
+            layaout.setOnClickListener {
+
+                val action = AgendaFragmentDirections.actionFirstFragmentToSecondFragment(tarea)
+                itemView.findNavController().navigate(action)
+            }
+
+            tareaLista.setOnClickListener {
+
+                if (tareaLista.isChecked) {
+
+                    tarea.tareaEstaLista = true
+                    listener(tarea)
+
+                } else {
+
+                    tarea.tareaEstaLista = false
+                    listener(tarea)
+                }
+            }
+        }
     }
 }
