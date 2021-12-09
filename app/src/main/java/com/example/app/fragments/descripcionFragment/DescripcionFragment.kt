@@ -37,9 +37,10 @@ class DescripcionFragment : Fragment() {
         agendaViewModel = ViewModelProvider(this).get(AgendaViewModel::class.java)
         val adapter = ComentariosAdapter()
         val rvComentarios = binding.rvComentarios
+        val cleanList = args.currentItem.comentarios
         rvComentarios.layoutManager = LinearLayoutManager(requireContext())
         rvComentarios.adapter = adapter
-
+        adapter.setData(cleanList)
 
         binding.tvFinal.text = "Finaliza: ${args.currentItem.fechaFinal}"
         binding.tvDescripcionTarea.text = args.currentItem.contenidoTarea
@@ -75,6 +76,7 @@ class DescripcionFragment : Fragment() {
                 args.currentItem.fechaFinal,
                 args.currentItem.fechaInicio,
                 args.currentItem.tareaEstaLista,
+                cleanList
             )
             agendaViewModel.updateTarea(tarea)
         }
@@ -93,7 +95,8 @@ class DescripcionFragment : Fragment() {
                     args.currentItem.contenidoTarea,
                     args.currentItem.fechaFinal,
                     "0",
-                    false
+                    false,
+                    args.currentItem.comentarios
                 )
                 agendaViewModel.deleteTarea(deleteTarea)
                 findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
@@ -136,6 +139,7 @@ class DescripcionFragment : Fragment() {
                     finaliza.text.toString(),
                     args.currentItem.fechaInicio,
                     false,
+                    arrayListOf()
                 )
                 agendaViewModel.updateTarea(updateTarea)
                 findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)

@@ -10,7 +10,7 @@ import com.example.app.R
 
 class ComentariosAdapter : RecyclerView.Adapter<ComentariosAdapter.ViewHolder>() {
 
-    private var listaComentarios = mutableListOf<String>()
+    private var listaComentarios = arrayListOf<String>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -32,7 +32,7 @@ class ComentariosAdapter : RecyclerView.Adapter<ComentariosAdapter.ViewHolder>()
         return listaComentarios.size
     }
 
-    fun setData(list: MutableList<String>) {
+    fun setData(list: ArrayList<String>) {
 
         listaComentarios = list
         notifyDataSetChanged()
